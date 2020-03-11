@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <script src="https://kit.fontawesome.com/03e45702d6.js"
-            crossorigin="anonymous"></script>
         <title>Práctica 1 - Usuarios</title>
+        <script src="https://kit.fontawesome.com/03e45702d6.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../practice2/theme.css">
+        <link rel="stylesheet" href="../practice2/style.css">
+        <meta charset="UTF-8">
     </head>
     <body>
         <h1>Trabajo Práctico N°1</h1>
         <h2>Usuarios</h2>
-        <table style="width:50%">
+        <table id="users">
             <thead>
                 <tr>
                     <th rowspan="2">Firstname</th>
@@ -29,13 +31,13 @@
                     <td>Belaustegui</td>
                     <td>sebas@mail.com</td>
                     <td>232232323</td>
-                    <td>
+                    <td class="icon">
                         <i class="far fa-calendar-alt"></i>
                     </td>
-                    <td>
+                    <td class="icon">
                         <i class="fas fa-edit"></i>
                     </td>
-                    <td>
+                    <td class="icon">
                         <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
@@ -44,13 +46,13 @@
                     <td>Jackson</td>
                     <td>eve@mail.com</td>
                     <td>23241414</td>
-                    <td>
+                    <td class="icon">
                         <i class="far fa-calendar-alt"></i>
                     </td>
-                    <td>
+                    <td class="icon">
                         <i class="fas fa-edit"></i>
                     </td>
-                    <td>
+                    <td class="icon">
                         <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
@@ -60,118 +62,124 @@
             <h2>Nuevo Usuario</h2>
             <section>
                 <h3>Información de usuario</h3>
-                <p>
-                    <label for="name">
-                        <span>Nombre:</span>
-                    </label>
-                    <input type="text" id="name" name="username">
-                </p>
-                <p>
-                    <label for="lastname">
-                        <span>Apellido:</span>
-                    </label>
-                    <input type="text" id="lastname" name="lastname">
-                </p>
-                <p>
-                    <label for="mail">
-                        <Span>Correo electrónico:</span>
-                    </label>
-                    <input type="email" id="mail" name="usermail">
-                </p>
-                <p>
-                    <label for="tel">
-                        <span>Teléfono:</span>
-                    </label>
-                    <input type="tel" id="tel" name="tel">
-                </p>
+                <div>
+                    <p>
+                        <label for="name">
+                            <span>Nombre:</span>
+                        </label>
+                        <input type="text" id="name" name="username">
+                    </p>
+                    <p>
+                        <label for="lastname">
+                            <span>Apellido:</span>
+                        </label>
+                        <input type="text" id="lastname" name="lastname">
+                    </p>
+                    <p>
+                        <label for="mail">
+                            <Span>Correo electrónico:</span>
+                        </label>
+                        <input type="email" id="mail" name="usermail">
+                    </p>
+                    <p>
+                        <label for="tel">
+                            <span>Teléfono:</span>
+                        </label>
+                        <input type="tel" id="tel" name="tel">
+                    </p>
+                </div>
             </section>
             <section>
                 <h3>Información de dirección</h3>
-                <p>
-                    <label for="street">
-                        <span>Calle:</span>
-                    </label>
-                    <input type="text" id="street" name="street">
-                </p>
-                <p>
-                    <label for="province">
-                        <span>Provincia:</span>
-                    </label>
-                    <select id="province">
-                        <option value="bsas">Buenos Aires</option>
-                        <option value="catamarca">Catamarca</option>
-                        <option value="chaco">Chaco</option>
-                        <option value="chubut">Chubut</option>
-                        <option value="cordoba">Córdoba</option>
-                        <option value="corrientes">Corrientes</option>
-                        <option value="entrerios">Entre Ríos</option>
-                        <option value="formosa">Formosa</option>
-                        <option value="pampa">La Pampa</option>
-                        <option value="rioja">La Rioja</option>
-                        <option value="mendoza">Mendoza</option>
-                        <option value="misiones">Misiones</option>
-                        <option value="neuquen">Neuquén</option>
-                        <option value="rionegro">Río Negro</option>
-                        <option value="salta">Salta</option>
-                        <option value="sanjuan">San Juan</option>
-                        <option value="santacruz">Santa Cruz</option>
-                        <option value="santafe">Santa Fe</option>
-                        <option value="santiago">Santiago Del Estero</option>
-                        <option value="fuego">Tierra Del Fuego</option>
-                        <option value="tucuman">Túcuman</option>
-                    </select>
-                </p>
-                <p>
-                    <label for="cp">
-                        <span>Código Postal:</span>
-                    </label>
-                    <input type="text" id="cp" name="cp">
-                </p>
+                <div>
+                    <p>
+                        <label for="street">
+                            <span>Calle:</span>
+                        </label>
+                        <input type="text" id="street" name="street">
+                    </p>
+                    <p>
+                        <label for="province">
+                            <span>Provincia:</span>
+                        </label>
+                        <select id="province">
+                            <option value="bsas">Buenos Aires</option>
+                            <option value="catamarca">Catamarca</option>
+                            <option value="chaco">Chaco</option>
+                            <option value="chubut">Chubut</option>
+                            <option value="cordoba">Córdoba</option>
+                            <option value="corrientes">Corrientes</option>
+                            <option value="entrerios">Entre Ríos</option>
+                            <option value="formosa">Formosa</option>
+                            <option value="pampa">La Pampa</option>
+                            <option value="rioja">La Rioja</option>
+                            <option value="mendoza">Mendoza</option>
+                            <option value="misiones">Misiones</option>
+                            <option value="neuquen">Neuquén</option>
+                            <option value="rionegro">Río Negro</option>
+                            <option value="salta">Salta</option>
+                            <option value="sanjuan">San Juan</option>
+                            <option value="santacruz">Santa Cruz</option>
+                            <option value="santafe">Santa Fe</option>
+                            <option value="santiago">Santiago Del Estero</option>
+                            <option value="fuego">Tierra Del Fuego</option>
+                            <option value="tucuman">Túcuman</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="cp">
+                            <span>Código Postal:</span>
+                        </label>
+                        <input type="text" id="cp" name="cp">
+                    </p>
+                </div>
             </section>
             <section>
                 <h3>Otra Información</h3>
-                <p>
-                    <label for="date">
-                        <span>Fecha de nacimiento:</span>
-                    </label>
-                    <input type="date" id="date"
-                        name="date">
-                </p>
-                <fieldset>
-                    <legend>Estado Civil</legend>
-                    <ul>
-                        <li>
-                            <label for="state_1">
-                                <input type="radio" id="state_1" name="state"
-                                    value="soltero">
-                                Soltero
-                            </label>
-                        </li>
-                        <li>
-                            <label for="state_2">
-                                <input type="radio" id="state_2" name="state"
-                                    value="casado">
-                                Casado
-                            </label>
-                        </li>
-                        <li>
-                            <label for="state_3">
-                                <input type="radio" id="state_3" name="state"
-                                    value="divorciado">
-                                Divorciado
-                            </label>
-                        </li>
-                    </ul>
-                </fieldset>
-                <p>
-                    <input type="file" name="photo" id="photo">
-                </p>
-                <p>
-                    <label for="comment">
-                        <span>Comentarios</span>
-                    </label>
-                    <textarea id="comment" placeholder="Ingrese aquí sus comentarios..."></textarea>
-                </p>
+                <div>
+                    <p>
+                        <label for="date">
+                            <span>Fecha de nacimiento:</span>
+                        </label>
+                        <input type="date" id="date"
+                            name="date">
+                    </p>
+                    <fieldset>
+                        <legend>Estado Civil</legend>
+                        <ul>
+                            <li>
+                                <label for="state_1">
+                                    <input type="radio" id="state_1" name="state"
+                                        value="soltero">
+                                    Soltero
+                                </label>
+                            </li>
+                            <li>
+                                <label for="state_2">
+                                    <input type="radio" id="state_2" name="state"
+                                        value="casado">
+                                    Casado
+                                </label>
+                            </li>
+                            <li>
+                                <label for="state_3">
+                                    <input type="radio" id="state_3" name="state"
+                                        value="divorciado">
+                                    Divorciado
+                                </label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <p>
+                        <input type="file" name="photo" id="photo">
+                    </p>
+                    <p>
+                        <label for="comment">
+                            <span>Comentarios</span>
+                        </label>
+                        <textarea id="comment" placeholder="Ingrese aquí sus comentarios..."></textarea>
+                    </p>
+                </div>
             </section>
             <p>
                 <button type="submit">Enviar</button>
