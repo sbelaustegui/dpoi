@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <script src="https://kit.fontawesome.com/03e45702d6.js"
             crossorigin="anonymous"></script>
@@ -9,52 +9,52 @@
         <h1>Trabajo Práctico N°1</h1>
         <h2>Usuarios</h2>
         <table style="width:50%">
-            <tr>
-                <th colspan="3"></th>
-                <th colspan="3"></th>
-                <th colspan="3"></th>
-                <th colspan="3"></th>
-                <th colspan="3">Actions</th>
-            </tr>
-            <tr>
-                <th colspan="3">Firstname</th>
-                <th colspan="3">Lastname</th>
-                <th colspan="3">Mail</th>
-                <th colspan="3">Phone</th>
-                <th colspan="1">View</th>
-                <th colspan="1">Edit</th>
-                <th colspan="1">Delete</th>
-            </tr>
-            <tr>
-                <td colspan="3">Sebastian</td>
-                <td colspan="3">Belaustegui</td>
-                <td colspan="3">sebas@mail.com</td>
-                <td colspan="3">232232323</td>
-                <td colspan="1">
-                    <i class="far fa-calendar-alt"></i>
-                </td>
-                <td colspan="1">
-                    <i class="fas fa-edit"></i>
-                </td>
-                <td colspan="1">
-                    <i class="fas fa-trash-alt"></i>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">Eve</td>
-                <td colspan="3">Jackson</td>
-                <td colspan="3">eve@mail.com</td>
-                <td colspan="3">23241414</td>
-                <td colspan="1">
-                    <i class="far fa-calendar-alt"></i>
-                </td>
-                <td colspan="1">
-                    <i class="fas fa-edit"></i>
-                </td>
-                <td colspan="1">
-                    <i class="fas fa-trash-alt"></i>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th rowspan="2">Firstname</th>
+                    <th rowspan="2">Lastname</th>
+                    <th rowspan="2">Mail</th>
+                    <th rowspan="2">Phone</th>
+                    <th colspan="3">Actions</th>
+                </tr>
+                <tr>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sebastian</td>
+                    <td>Belaustegui</td>
+                    <td>sebas@mail.com</td>
+                    <td>232232323</td>
+                    <td>
+                        <i class="far fa-calendar-alt"></i>
+                    </td>
+                    <td>
+                        <i class="fas fa-edit"></i>
+                    </td>
+                    <td>
+                        <i class="fas fa-trash-alt"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Eve</td>
+                    <td>Jackson</td>
+                    <td>eve@mail.com</td>
+                    <td>23241414</td>
+                    <td>
+                        <i class="far fa-calendar-alt"></i>
+                    </td>
+                    <td>
+                        <i class="fas fa-edit"></i>
+                    </td>
+                    <td>
+                        <i class="fas fa-trash-alt"></i>
+                    </td>
+                </tr>
+            </tbody>
         </table>
         <form action="/action_page.php">
             <h2>Nuevo Usuario</h2>
@@ -134,7 +134,7 @@
                     <label for="date">
                         <span>Fecha de nacimiento:</span>
                     </label>
-                    <input type="date" format="dd-mm-aaaa" id="date"
+                    <input type="date" id="date"
                         name="date">
                 </p>
                 <fieldset>
@@ -170,7 +170,7 @@
                     <label for="comment">
                         <span>Comentarios</span>
                     </label>
-                    <textarea name="comment" placeholder="Ingrese aquí sus comentarios..."></textarea>
+                    <textarea id="comment" placeholder="Ingrese aquí sus comentarios..."></textarea>
                 </p>
             </section>
             <p>
