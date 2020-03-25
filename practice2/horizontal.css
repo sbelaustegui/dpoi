@@ -1,0 +1,17 @@
+body {
+    padding: 20px;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.main #indice {
+    width: 20%;
+}
+
+.main .content{
+    width: 80%;
+}
+

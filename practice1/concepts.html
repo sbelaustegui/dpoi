@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Práctica 1 - Conceptos</title>
-        <link rel="stylesheet" href="../practice2/theme.css">
-        <link rel="stylesheet" type="text/css" href="../practice2/print.css" media="print" />
-        <meta charset="UTF-8">
-    </head>
-    <body>
-        <h1>Trabajo Práctico N°1</h1>
-        <h2>Conceptos</h2>
-        <div id="indice">
-            <h3>Índice</h3>
-            <ul>
-                <li>
-                    <a href="#br">Usage of &lt;br&gt;</a>
-                </li>
-                <li>
-                    <a href="#defintions">Definitions</a>
-                    <ul>
-                        <li>
-                            <a href="#uri">URI</a>
-                        </li>
-                        <li>
-                            <a href="#url">URL</a>
-                        </li>
-                        <li>
-                            <a href="#html">HTML</a>
-                        </li>
-                        <li>
-                            <a href="#xhtml">XHTML</a>
-                        </li>
-                        <li>
-                            <a href="#css">CSS</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+<head>
+    <title>Práctica 1 - Conceptos</title>
+    <link rel="stylesheet" href="../practice2/theme.css">
+    <link rel="stylesheet" href="../practice2/horizontal.css">
+    <link rel="stylesheet" type="text/css" href="../practice2/print.css" media="print"/>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Trabajo Práctico N°1</h1>
+<h2>Conceptos</h2>
+<div class="main">
+    <div id="indice">
+        <h3>Índice</h3>
+        <ul id="first-level">
+            <li>
+                <a href="#br">Usage of &lt;br&gt;</a>
+            </li>
+            <li>
+                <a href="#defintions">Definitions</a>
+                <ul id="second-level">
+                    <li>
+                        <a href="#uri">URI</a>
+                    </li>
+                    <li>
+                        <a href="#url">URL</a>
+                    </li>
+                    <li>
+                        <a href="#html">HTML</a>
+                    </li>
+                    <li>
+                        <a href="#xhtml">XHTML</a>
+                    </li>
+                    <li>
+                        <a href="#css">CSS</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
         <section>
             <h3 id="br">Usage of &lt;br&gt;</h3>
             <div class="section-content">
@@ -48,11 +51,11 @@
                     For example: <br>
                     <q>
                         No dejes que termine sin haber crecido un poco, <br>
-                        sin haber sido un poco mas feliz,               <br>
-                        sin haber alimentado tus sueños.                <br>
-                        No te dejes vencer por el desaliento.           <br>
-                        No permitas que nadie                           <br>
-                        te quite el derecho de                          <br>
+                        sin haber sido un poco mas feliz, <br>
+                        sin haber alimentado tus sueños. <br>
+                        No te dejes vencer por el desaliento. <br>
+                        No permitas que nadie <br>
+                        te quite el derecho de <br>
                         expresarte que es casi un deber.
                     </q>
                 </p>
@@ -64,35 +67,59 @@
                 <dl>
                     <dt id="uri">URI</dt>
                     <dd>
-                        Un identificador de recursos uniforme o URI —del inglés uniform resource identifier— es una cadena de caracteres que identifica los recursos de una red de forma unívoca.
-                        La diferencia respecto a un localizador de recursos uniforme (URL) es que estos últimos hacen referencia a recursos que, de forma general, pueden variar en el tiempo.
+                        Un identificador de recursos uniforme o URI —del inglés uniform resource identifier— es una
+                        cadena de caracteres que identifica los recursos de una red de forma unívoca.
+                        La diferencia respecto a un localizador de recursos uniforme (URL) es que estos últimos hacen
+                        referencia a recursos que, de forma general, pueden variar en el tiempo.
                     </dd>
                     <dt id="url">URL</dt>
                     <dd>
-                        Un localizador de recursos uniforme (más conocido por las siglas URL, del inglés Uniform Resource Locator)​ es un identificador de recursos uniforme (Uniform Resource Identifier, URI) cuyos recursos referidos pueden cambiar, esto es, la dirección puede apuntar a recursos variables en el tiempo.
-                        Están formados por una secuencia de caracteres de acuerdo a un formato modélico y estándar que designa recursos en una red como, por ejemplo, Internet.
+                        Un localizador de recursos uniforme (más conocido por las siglas URL, del inglés Uniform
+                        Resource Locator)​ es un identificador de recursos uniforme (Uniform Resource Identifier, URI)
+                        cuyos recursos referidos pueden cambiar, esto es, la dirección puede apuntar a recursos
+                        variables en el tiempo.
+                        Están formados por una secuencia de caracteres de acuerdo a un formato modélico y estándar que
+                        designa recursos en una red como, por ejemplo, Internet.
                     </dd>
                     <dt id="html">HTML</dt>
                     <dd>
-                        HTML, siglas en inglés de HyperText Markup Language (‘lenguaje de marcas de hipertexto’), hace referencia al lenguaje de marcado para la elaboración de páginas web.
-                        Es un estándar que sirve de referencia del software que conecta con la elaboración de páginas web en sus diferentes versiones, define una estructura básica y un código (denominado código HTML) para la definición de contenido de una página web, como texto, imágenes, videos, juegos, entre otros.
-                        Es un estándar a cargo del World Wide Web Consortium (W3C) o Consorcio WWW, organización dedicada a la estandarización de casi todas las tecnologías ligadas a la web, sobre todo en lo referente a su escritura e interpretación. HTML se considera el lenguaje web más importante siendo su invención crucial en la aparición, desarrollo y expansión de la World Wide Web (WWW).
-                        Es el estándar que se ha impuesto en la visualización de páginas web y es el que todos los navegadores actuales han adoptado.
+                        HTML, siglas en inglés de HyperText Markup Language (‘lenguaje de marcas de hipertexto’), hace
+                        referencia al lenguaje de marcado para la elaboración de páginas web.
+                        Es un estándar que sirve de referencia del software que conecta con la elaboración de páginas
+                        web en sus diferentes versiones, define una estructura básica y un código (denominado código
+                        HTML) para la definición de contenido de una página web, como texto, imágenes, videos, juegos,
+                        entre otros.
+                        Es un estándar a cargo del World Wide Web Consortium (W3C) o Consorcio WWW, organización
+                        dedicada a la estandarización de casi todas las tecnologías ligadas a la web, sobre todo en lo
+                        referente a su escritura e interpretación. HTML se considera el lenguaje web más importante
+                        siendo su invención crucial en la aparición, desarrollo y expansión de la World Wide Web (WWW).
+                        Es el estándar que se ha impuesto en la visualización de páginas web y es el que todos los
+                        navegadores actuales han adoptado.
                     </dd>
                     <dt id="xhtml">XHTML</dt>
                     <dd>
-                        XHTML (eXtensible HyperText Markup Language), es básicamente HTML expresado como XML válido. Es más estricto a nivel técnico, pero esto permite que posteriormente sea más fácil al hacer cambios o buscar errores entre otros.
-                        En su versión 1.0, XHTML es solamente la versión XML de HTML, por lo que tiene, básicamente, las mismas funcionalidades, pero cumple las especificaciones, más estrictas, de XML.
-                        Su objetivo es avanzar en el proyecto del World Wide Web Consortium de lograr una web semántica, donde la información, y la forma de presentarla estén claramente separadas.
-                        La versión 1.1 es similar, pero parte a la especificación en módulos. En sucesivas versiones la W3C planea romper con los tags clásicos traídos de HTML.
+                        XHTML (eXtensible HyperText Markup Language), es básicamente HTML expresado como XML válido. Es
+                        más estricto a nivel técnico, pero esto permite que posteriormente sea más fácil al hacer
+                        cambios o buscar errores entre otros.
+                        En su versión 1.0, XHTML es solamente la versión XML de HTML, por lo que tiene, básicamente, las
+                        mismas funcionalidades, pero cumple las especificaciones, más estrictas, de XML.
+                        Su objetivo es avanzar en el proyecto del World Wide Web Consortium de lograr una web semántica,
+                        donde la información, y la forma de presentarla estén claramente separadas.
+                        La versión 1.1 es similar, pero parte a la especificación en módulos. En sucesivas versiones la
+                        W3C planea romper con los tags clásicos traídos de HTML.
                     </dd>
                     <dt id="css">CSS</dt>
                     <dd>
-                        Hojas de Estilo en Cascada (del inglés Cascading Style Sheets) o CSS es el lenguaje utilizado para describir la presentación de documentos HTML o XML, esto incluye varios lenguajes basados en XML como son XHTML o SVG.
-                        CSS describe como debe ser renderizado el elemento estructurado en pantalla, en papel, hablado o en otros medios.
+                        Hojas de Estilo en Cascada (del inglés Cascading Style Sheets) o CSS es el lenguaje utilizado
+                        para describir la presentación de documentos HTML o XML, esto incluye varios lenguajes basados
+                        en XML como son XHTML o SVG.
+                        CSS describe como debe ser renderizado el elemento estructurado en pantalla, en papel, hablado o
+                        en otros medios.
                     </dd>
                 </dl>
             </div>
         </section>
-    </body>
+    </div>
+</div>
+</body>
 </html>
