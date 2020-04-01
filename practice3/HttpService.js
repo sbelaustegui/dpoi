@@ -1,29 +1,32 @@
 /**
  * HTTP Web Service
- * This is a sample service class that uses fetch and promises.
- *
+ * This is a service class that uses fetch and promises.
  *
  * @class HTTPService
  */
-class HTTPService {
+class HttpService {
 
-    constructor() { }
+    serviceURL;
+
+    constructor(serviceURL) {
+      this.serviceURL = serviceURL;
+    }
 
     /**
      * Get Fetch using HTTP Bin
      *
      * @example
-     var service = new sampleWebService();
+     var service = new HttpService();
      service.Get().then((success => {
         console.log(success);
       }))
-     * @memberof sampleWebService
+     * @memberof HttpService
      * @returns {promise} returns a Promise
      */
-    getRequest() {
+    getRequest(url) {
         return new Promise((resolve, reject) => {
             // We fetch the API endpoint
-            fetch('http://dpoi2012api.appspot.com/api/1.0/').then((response) => {
+            fetch(this.serviceURL + url).then((response) => {
                 if (response.status !== 200) {
                     // Not success
                     resolve(response.text());
@@ -41,15 +44,15 @@ class HTTPService {
     /**
      * Sample Post Fetch using HTTP Bin
      * @example
-     var service = new sampleWebService();
+     var service = new HttpService();
      service.Post({
-          custname: 'John Doe',
-          custemail: 'test@test.com'
+          name: 'John Doe',
+          email: 'test@test.com'
         }).then(success => {
           console.log(success);
         })
      * @param {Object} object This is the form data.
-     * @memberof sampleWebService
+     * @memberof HttpService
      * @returns {Promise} return a promise
      */
     postRequest(object) {
@@ -63,7 +66,7 @@ class HTTPService {
             });
 
             // We fetch Post the API
-            fetch('http://dpoi2012api.appspot.com/api/1.0/', {
+            fetch(this.serviceURL, {
                 method: 'post',
                 body: formData
             }).then((response) => {
@@ -82,4 +85,4 @@ class HTTPService {
     }
 }
 
-export { HTTPService };
+export { HttpService };

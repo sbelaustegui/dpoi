@@ -13,3 +13,11 @@ label {
 input {
     display: table-cell;
 }
+
+.fa-spinner{
+    font-size: 30px;
+}
+
+.fa-spinner.hide{
+    display: none;
+}
