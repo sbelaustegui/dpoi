@@ -30,7 +30,7 @@
 
             </tbody>
         </table>
-        <form action="/action_page.php">
+        <form onsubmit="return false">
             <h2>Nuevo Usuario</h2>
             <section>
                 <h3>Información de usuario</h3>
@@ -154,7 +154,7 @@
                 </div>
             </section>
             <p>
-                <button type="submit">Enviar</button>
+                <button id="userFormData" type="submit">Enviar</button>
                 <input type="reset" value="Cancelar" />
             </p>
         </form>

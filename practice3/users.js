@@ -4,16 +4,37 @@ const userService = new UserService('http://dpoi2012api.appspot.com');
 const userTableValues = ['firstname', 'lastname', 'mail', 'phone'];
 const userTableActions = ['far fa-calendar-alt', 'fas fa-edit', 'fas fa-trash-alt'];
 
-
 // Request Users
-userService.users
-    .then(res => {
-        userTableGenerator(res);
-        document.getElementsByClassName('fa-spinner')[0].className += ' hide';
-        console.log(res)
-    }).catch(err => {
+const getUsers = () => {
+    userService.users
+        .then(res => {
+            userTableGenerator(res);
+            hideLoader();
+            console.log(res)
+        }).catch(err => {
         console.log(err)
     });
+};
+window.onload = getUsers;
+
+// Post User
+const postUser = (event) => {
+    document.getElementsByClassName('fa-spinner')[0].className -= ' hide';
+    const formData = new FormData(event.target.form);
+    userService.postUser(formData)
+        .then(res => {
+            userTableGenerator(res);
+            document.getElementsByClassName('fa-spinner')[0].className += ' hide';
+            console.log(res)
+        }).catch(err => {
+        console.log(err)
+    });
+};
+document.getElementById("userFormData").addEventListener('click', postUser);
+
+const hideLoader = () => {
+    document.getElementsByClassName('fa-spinner')[0].className += ' hide';
+};
 
 const userTableGenerator = (users) => {
     const tableBody = document.getElementById("users-list");

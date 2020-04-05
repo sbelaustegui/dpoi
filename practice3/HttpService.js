@@ -20,6 +20,7 @@ class HttpService {
      service.Get().then((success => {
         console.log(success);
       }))
+     * @param url url to post
      * @memberof HttpService
      * @returns {promise} returns a Promise
      */
@@ -42,7 +43,7 @@ class HttpService {
     }
 
     /**
-     * Sample Post Fetch using HTTP Bin
+     * Post Fetch using HTTP Bin
      * @example
      var service = new HttpService();
      service.Post({
@@ -51,24 +52,25 @@ class HttpService {
         }).then(success => {
           console.log(success);
         })
-     * @param {Object} object This is the form data.
+     * @param url url to post
+     * @param {formData} formData This is the form data.
      * @memberof HttpService
      * @returns {Promise} return a promise
      */
-    postRequest(object) {
+    postRequest(url, formData) {
         return new Promise((resolve, reject) => {
-            // We create a new form
-            var formData = new FormData();
+            // We create a new object
+            let object = {};
 
-            // we add all object items to the new form
-            object.forEach(() => (value, key) => {
-                formData.append(key, value);
-            });
+            // we add all form values to the new object
+            for(let pair of formData.entries()) {
+                object[pair[0]] = pair[1];
+            }
 
             // We fetch Post the API
-            fetch(this.serviceURL, {
+            fetch(this.serviceURL + url, {
                 method: 'post',
-                body: formData
+                body: JSON.stringify(object)
             }).then((response) => {
                 if (response.status !== 200) {
                     // Not success
