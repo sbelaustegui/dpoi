@@ -1,4 +1,4 @@
-import {HttpService} from "./HttpService.js";
+import {HttpService} from './HttpService.js';
 
 const api = '/api/1.0/';
 const credential = 'sbelaustegui';
@@ -10,6 +10,12 @@ class UserService {
         this.httpService = new HttpService(serviceURL);
     }
 
+    /**
+     * Get users list
+     *
+     * @member of UserService
+     * @returns {Promise} returns a promise with the users list
+     */
     get users(){
         return this.usersList ? new Promise.resolve(this.usersList) : this.getUsers();
     }
@@ -31,7 +37,7 @@ class UserService {
             this.httpService.postRequest(api + 'create?credential='+credential, user)
                 .then(body => {
                     let jsonBody = JSON.parse(body);
-                    this.usersList.push(jsonBody.payload.item);
+                    this.usersList.push(jsonBody.payload);
                     resolve(this.usersList);
                 })
                 .catch(err => reject(err))
@@ -39,11 +45,13 @@ class UserService {
     };
 
     deleteUser(userId) {
+        const formData = new FormData();
+        formData.append('id', userId);
         return new Promise( (resolve, reject) => {
-            this.httpService.postRequest(api + 'delete?credential='+credential, {id: userId})
+            this.httpService.postRequest(api + 'delete?credential='+credential, formData)
                 .then(body => {
                     let jsonBody = JSON.parse(body);
-                    this.usersList.push(jsonBody.payload.item);
+                    this.usersList.splice(this.usersList.findIndex(user => user.id === userId), 1);
                     resolve(this.usersList);
                 })
                 .catch(err => reject(err))

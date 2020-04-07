@@ -53,24 +53,24 @@ class HttpService {
           console.log(success);
         })
      * @param url url to post
-     * @param {formData} formData This is the form data.
+     * @param {FormData} formData This is the form data.
      * @memberof HttpService
      * @returns {Promise} return a promise
      */
     postRequest(url, formData) {
         return new Promise((resolve, reject) => {
             // We create a new object
-            let object = {};
+            let searchParams = new URLSearchParams();
 
             // we add all form values to the new object
             for(let pair of formData.entries()) {
-                object[pair[0]] = pair[1];
+                searchParams.set(pair[0], pair[1]);
             }
 
             // We fetch Post the API
             fetch(this.serviceURL + url, {
                 method: 'post',
-                body: JSON.stringify(object)
+                body: searchParams
             }).then((response) => {
                 if (response.status !== 200) {
                     // Not success
@@ -85,6 +85,7 @@ class HttpService {
             });
         });
     }
+
 }
 
 export { HttpService };

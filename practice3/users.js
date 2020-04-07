@@ -1,70 +1,84 @@
 import {UserService} from './UserService.js';
+// import {tableGenerator} from './TableElement/CustomTable.js';
+import {destruct, hideLoader, showLoader} from './utils.js';
 
 const userService = new UserService('http://dpoi2012api.appspot.com');
 const userTableValues = ['firstname', 'lastname', 'mail', 'phone'];
-const userTableActions = ['far fa-calendar-alt', 'fas fa-edit', 'fas fa-trash-alt'];
+const usersTableId = 'users-list';
+
+
+
+
+
+// ----------------------- ACTIONS -------------------------- //
+
+const viewUser = (event) => {
+    console.log(event.target.dataset.id);
+};
+
+const editUser = (event) => {
+    console.log(event.target.dataset.id);
+};
+const deleteUser = (event) => {
+    const id = event.target.dataset.id;
+    userService.deleteUser(id);
+};
+
+
+const userTableActions = [
+    {
+        type: 'view',
+        icon: 'far fa-calendar-alt',
+        actionFunction: viewUser
+    },{
+        type: 'edit',
+        icon: 'fas fa-edit',
+        actionFunction: editUser
+    },{
+        type: 'delete',
+        icon: 'fas fa-trash-alt',
+        actionFunction: deleteUser
+    }
+];
+
+// ----------------------- USER API METHODS -------------------------- //
 
 // Request Users
 const getUsers = () => {
     userService.users
         .then(res => {
-            userTableGenerator(res);
+            // const users = res.map(user => {
+            //     Object.values(destruct(user, userTableValues));
+            // });
+            const users = [[{hola: 'a'}, {hola: 'b'}, {hola: 'c'}]];
+            document.querySelector('#custom-table').customRows(users);
+            // tableGenerator(res, usersTableId, userTableValues, userTableActions);
             hideLoader();
             console.log(res)
         }).catch(err => {
         console.log(err)
     });
 };
+
+// Make window calls 'getUsers' on load.
 window.onload = getUsers;
 
 // Post User
 const postUser = (event) => {
-    document.getElementsByClassName('fa-spinner')[0].className -= ' hide';
+    showLoader();
     const formData = new FormData(event.target.form);
     userService.postUser(formData)
         .then(res => {
-            userTableGenerator(res);
-            document.getElementsByClassName('fa-spinner')[0].className += ' hide';
+            // TODO modify this to push only new object
+            // tableGenerator(res, usersTableId, userTableValues, userTableActions);
+            hideLoader();
             console.log(res)
         }).catch(err => {
         console.log(err)
     });
 };
+
+// Make form data calls 'postUser' on submit.
 document.getElementById("userFormData").addEventListener('click', postUser);
 
-const hideLoader = () => {
-    document.getElementsByClassName('fa-spinner')[0].className += ' hide';
-};
 
-const userTableGenerator = (users) => {
-    const tableBody = document.getElementById("users-list");
-    users.forEach(user => {
-        const values = Object.values(destruct(user, userTableValues));
-        const row = elementRowGenerator(values);
-        addElementActionToRow(row);
-        tableBody.append(row)
-    });
-};
-
-const elementRowGenerator = (cells) => {
-    const row = document.createElement('tr');
-    cells.forEach(cell => {
-        const td = document.createElement('td');
-        td.append(cell);
-        row.append(td)
-    });
-    return row;
-};
-
-const addElementActionToRow = (row) => {
-    userTableActions.forEach(icon => {
-        const td = document.createElement('td');
-        td.className += 'icon';
-        const iconCell = document.createElement('i');
-        iconCell.className += icon;
-        td.append(iconCell);
-        row.append(td);
-    })
-};
-
-const destruct = (obj, keys) => keys.reduce((a, c) => ({ ...a, [c]: obj[c] }), {});
