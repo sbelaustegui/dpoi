@@ -30,20 +30,21 @@ class UserService {
         return new Promise( (resolve, reject) => {
             this.httpService.postRequest(api + 'create?credential='+credential, user)
                 .then(body => {
-                    let jsonBody = JSON.parse(body);
-                    this.usersList.push(jsonBody.payload.item);
-                    resolve(this.usersList);
+                    let user = JSON.parse(body).payload;
+                    this.usersList.push(user);
+                    resolve(user);
                 })
                 .catch(err => reject(err))
         })
     };
 
     deleteUser(userId) {
+        const formData = new FormData();
+        formData.append('id', userId);
         return new Promise( (resolve, reject) => {
-            this.httpService.postRequest(api + 'delete?credential='+credential, {id: userId})
+            this.httpService.postRequest(api + 'delete?credential='+credential, formData)
                 .then(body => {
-                    let jsonBody = JSON.parse(body);
-                    this.usersList.push(jsonBody.payload.item);
+                    this.usersList.splice(this.usersList.findIndex(user => user.id === userId), 1);
                     resolve(this.usersList);
                 })
                 .catch(err => reject(err))
