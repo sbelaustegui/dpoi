@@ -47,11 +47,13 @@ class UsersHandler {
 
 
     viewUser(event) {
-        console.log(event.target.dataset.id);
+        const id = getClosestParentElementByQuery(event.target, 'tr').id;
+        console.log(id);
     };
 
     editUser(event) {
-        console.log(event.target.dataset.id);
+        const id = getClosestParentElementByQuery(event.target, 'tr').id;
+        console.log(id);
     };
 
     deleteUser(event) {
